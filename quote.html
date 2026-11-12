@@ -9,6 +9,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2C3A4B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brooks Logistics &amp; Transport">
+<meta property="og:title" content="Get a quote | Brooks Logistics &amp; Transport">
+<meta property="og:description" content="Request a quote for same-day courier or expedited cargo van delivery from Brooks Logistics & Transport. Call 478-538-4743.">
+<meta property="og:image" content="https://brooks-logistics.vercel.app/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
 </head>
 <body>
 <header>
@@ -36,7 +46,12 @@
       </div>
       <p class="sub" style="margin-top:28px">The van carries up to 3,000 lb in a cargo area 143.7″ long, 70.2″ wide and 81.5″ high. No hazmat.</p>
     </div>
-    <form id="req" novalidate>
+    <form id="req" action="https://formsubmit.co/dispatch@brookslogisticsandtransport.com" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="New quote request: brookslogisticsandtransport.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" id="next" value="https://brooks-logistics.vercel.app/thanks.html">
+      <input type="hidden" name="_autoresponse" value="Thanks for contacting Brooks Logistics & Transport. We received your request and will get back to you with a price. If it needs to move right now, call us at 478-538-4743.">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="row">
         <div class="field"><label for="pickup">Pickup location *</label><input id="pickup" name="pickup" required placeholder="City or address"></div>
         <div class="field"><label for="delivery">Delivery location *</label><input id="delivery" name="delivery" required placeholder="City or address"></div>
@@ -61,7 +76,7 @@
       </div>
       <div class="field"><label for="notes">Anything else we should know?</label><textarea id="notes" name="notes" placeholder="Pickup time, loading dock, who signs for it"></textarea></div>
       <div class="form-foot">
-        <p>Rough numbers are fine.</p>
+        <p>Rough numbers are fine. You may be asked to confirm you’re not a robot.</p>
         <button class="btn" type="submit">Send</button>
       </div>
       <div class="status" id="status" role="status" aria-live="polite"></div>
@@ -80,6 +95,7 @@
     <div class="legal"><span>© <span class="yr">2026</span> Brooks Logistics &amp; Transport LLC</span><span>Website by MP Developments</span></div>
   </div>
 </footer>
+<nav class="callbar" aria-label="Quick contact"><a class="c1" href="tel:+14785384743">Call now</a><a class="c2" href="quote.html">Get a quote</a></nav>
 <script src="site.js"></script>
 </body>
 </html>
