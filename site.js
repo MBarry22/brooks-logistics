@@ -36,10 +36,11 @@ if (mapEl && window.L) {
     ['Milledgeville', 33.080, -83.232], ['Fort Valley', 32.554, -83.887], ['Dublin', 32.540, -82.904]
   ];
   const map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true, attributionControl: true });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    maxZoom: 18, subdomains: 'abcd',
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18, className: 'tiles-muted',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
+  map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
   const pts = towns.map(t => [t[1], t[2]]);
   L.polygon(hull(pts), { color: '#34465E', weight: 2, fillColor: '#34465E', fillOpacity: 0.08, dashArray: '6 6', interactive: false }).addTo(map);
   towns.forEach(([name, lat, lon, home]) => {

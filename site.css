@@ -183,6 +183,7 @@ footer .legal { display: flex; flex-wrap: wrap; justify-content: space-between; 
 .map-wrap { margin-top: 36px; border: 1px solid var(--line); background: #F4F4F2; }
 .map-wrap svg { display: block; width: 100%; height: auto; }
 #map { height: 480px; width: 100%; background: #EEF0F1; }
+.tiles-muted { filter: grayscale(1) contrast(0.9) brightness(1.04); }
 @media (max-width: 600px) { #map { height: 380px; } }
 .pin { width: 14px; height: 14px; border-radius: 50%; background: #181B1F; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.35); }
 .pin.home { width: 20px; height: 20px; background: #34465E; border-width: 3px; }
