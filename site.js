@@ -26,3 +26,35 @@ if (form) {
     if (btn) { btn.textContent = 'Sending…'; btn.disabled = true; }
   });
 }
+
+// Service-area map (Leaflet + CARTO light basemap)
+const mapEl = document.getElementById('map');
+if (mapEl && window.L) {
+  const towns = [
+    ['Juliette (base)', 33.105, -83.796, true], ['Macon', 32.840, -83.632], ['Warner Robins', 32.615, -83.627],
+    ['Perry', 32.458, -83.731], ['Byron', 32.654, -83.760], ['Forsyth', 33.034, -83.938], ['Gray', 33.009, -83.534],
+    ['Milledgeville', 33.080, -83.232], ['Fort Valley', 32.554, -83.887], ['Dublin', 32.540, -82.904]
+  ];
+  const map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true, attributionControl: true });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 18, subdomains: 'abcd',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  }).addTo(map);
+  const pts = towns.map(t => [t[1], t[2]]);
+  L.polygon(hull(pts), { color: '#34465E', weight: 2, fillColor: '#34465E', fillOpacity: 0.08, dashArray: '6 6', interactive: false }).addTo(map);
+  towns.forEach(([name, lat, lon, home]) => {
+    const icon = L.divIcon({ className: '', html: '<div class="pin' + (home ? ' home' : '') + '"></div>', iconSize: home ? [20, 20] : [14, 14], iconAnchor: home ? [10, 10] : [7, 7] });
+    L.marker([lat, lon], { icon, keyboard: false }).addTo(map)
+      .bindTooltip(name, { permanent: true, direction: 'right', offset: [8, 0], className: 'town-label' + (home ? ' home' : '') });
+  });
+  map.fitBounds(L.latLngBounds(pts).pad(0.12));
+  // Convex hull (monotone chain) so the shaded zone wraps every town
+  function hull(p) {
+    const a = p.map(([la, lo]) => [lo, la]).sort((x, y) => x[0] - y[0] || x[1] - y[1]);
+    const cross = (o, b, c) => (b[0] - o[0]) * (c[1] - o[1]) - (b[1] - o[1]) * (c[0] - o[0]);
+    const lower = [], upper = [];
+    for (const q of a) { while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], q) <= 0) lower.pop(); lower.push(q); }
+    for (const q of a.slice().reverse()) { while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], q) <= 0) upper.pop(); upper.push(q); }
+    return lower.slice(0, -1).concat(upper.slice(0, -1)).map(([lo, la]) => [la, lo]);
+  }
+}
