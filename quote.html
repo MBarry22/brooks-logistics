@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get a quote | Brooks Logistics &amp; Transport</title>
+<meta name="description" content="Request a quote for same-day courier or expedited cargo van delivery from Brooks Logistics & Transport. Call 478-538-4743.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="name" href="index.html">Brooks Logistics <span>&amp; Transport</span></a>
+    <nav class="main" aria-label="Main"><a href="services.html">Services</a><a href="service-area.html">Service area</a><a href="about.html">About</a></nav>
+    <div class="head-right">
+      <a class="head-phone" href="tel:+14785384743">478-538-4743</a>
+      <a class="btn" href="quote.html">Get a quote</a>
+    </div>
+  </div>
+</header>
+<main>
+<section class="page-head"><div class="wrap">
+  <h1>Get a quote</h1>
+  <p>Send us the details and we'll get back to you with a price. If it needs to go right now, calling is faster.</p>
+</div></section>
+<section class="quote">
+  <div class="wrap">
+    <div>
+      <div class="reach" style="margin-top:0">
+        <a class="big" href="tel:+14785384743">478-538-4743</a>
+        <a href="mailto:dispatch@brookslogisticsandtransport.com">dispatch@brookslogisticsandtransport.com</a>
+        <span>Monday to Friday</span>
+      </div>
+      <p class="sub" style="margin-top:28px">The van carries up to 3,000 lb in a cargo area 143.7″ long, 70.2″ wide and 81.5″ high. No hazmat.</p>
+    </div>
+    <form id="req" novalidate>
+      <div class="row">
+        <div class="field"><label for="pickup">Pickup location *</label><input id="pickup" name="pickup" required placeholder="City or address"></div>
+        <div class="field"><label for="delivery">Delivery location *</label><input id="delivery" name="delivery" required placeholder="City or address"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="date">When</label><input id="date" name="date" type="date"></div>
+        <div class="field"><label for="type">Service</label>
+          <select id="type" name="type"><option>Same-day local</option><option>Regional run</option><option>Medical / pharmacy</option><option>Recurring route</option><option>Other</option></select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="weight">Rough weight (lb)</label><input id="weight" name="weight" inputmode="numeric" placeholder="Up to 3,000"></div>
+        <div class="field"><label for="what">What is it?</label><input id="what" name="what" placeholder="2 pallets of auto parts"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="name">Your name *</label><input id="name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="field"><label for="notes">Anything else we should know?</label><textarea id="notes" name="notes" placeholder="Pickup time, loading dock, who signs for it"></textarea></div>
+      <div class="form-foot">
+        <p>Rough numbers are fine.</p>
+        <button class="btn" type="submit">Send</button>
+      </div>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><b>Brooks Logistics &amp; Transport LLC</b>Same-day courier and expedited cargo van freight, based in Juliette, Georgia.<br>USDOT 6696357 · MC 82156636</div>
+      <div><b>Pages</b><a href="services.html">Services</a><a href="service-area.html">Service area</a><a href="about.html">About</a><a href="quote.html">Get a quote</a></div>
+      <div><b>Contact</b><a href="tel:+14785384743">478-538-4743</a><a href="mailto:dispatch@brookslogisticsandtransport.com">dispatch@brookslogisticsandtransport.com</a>Monday to Friday</div>
+    </div>
+    <div class="legal"><span>© <span class="yr">2026</span> Brooks Logistics &amp; Transport LLC</span><span>Website by MP Developments</span></div>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>
